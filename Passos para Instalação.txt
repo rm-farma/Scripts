@@ -1,0 +1,39 @@
+Passos para Instalação:
+
+1. Copie a pasta Scripts para o diretório C:
+
+2. Execute o instalador python 3.12.4
+- Marque as opções "Add Python to PATH" e "Use admin..." durante a instalação.
+
+3. Instale o pywin32
+
+- Abra o Prompt de Comando como Administrador:
+- Execute o comando: pip install pywin32
+- Atualize o pywin32 com o comando: python.exe -m pip install --upgrade pip
+
+4. Configure e Registre o Serviço
+
+- No Prompt de Comando como Administrador, navegue até o diretório onde o script está salvo com o comando: 
+cd C:\Scripts
+
+- Registre o serviço com o comando:
+python monitor_cloudflared_service.py install
+
+5. Configure para Início Automático:
+
+- Abra o Gerenciador de Serviços do Windows (services.msc).
+- Encontre o serviço Monitor Cloudflared Service.
+- Clique com o botão direito no serviço, selecione Propriedades.
+- Defina o Tipo de inicialização como Automático.
+
+6. Iniciar o Serviço:
+
+- Ainda no Prompt de Comando, inicie o serviço com o comando:
+python monitor_cloudflared_service.py start
+
+7. Verificar logs:
+
+- Execute o instalador "SnakeTail"
+- Abra o SnakeTail no PC
+- Com ele aberto, vá em File > Open File e selecione o arquivo "service_monitor"
+- Verifique nos logs se o serviço está executando
